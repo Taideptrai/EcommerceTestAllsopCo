@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb-base", "airbnb/rules/react", "airbnb/hooks", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/no-array-index-key": "off",
+    "quotes": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "new-cap": 0,
+    "react/no-multi-comp": 0,
+    "import/default": 0,
+    "prefer-const": 0,
+    "import/no-duplicates": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/no-unresolved": 0,
+    "import/no-named-as-default": 0,
+    "comma-dangle": 0, // not sure why airbnb turned this on. gross!
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "no-alert": 0,
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "max-len": "off",
+    "no-shadow": "off",
+    "no-return-assign": "off",
+    "jsx-quotes": "off",
+    "no-param-reassign": 0
+  }
+}

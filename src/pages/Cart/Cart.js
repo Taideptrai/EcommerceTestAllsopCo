@@ -36,7 +36,7 @@ const Cart = () => {
   const setTotalPrice = state.price[1];
   const setTotalPriceWithPromo = state.priceWithPromo[1];
   let stateCheck = {};
-  const TotalPriceCal = () => {
+  const totalPriceCal = () => {
     let totalPrice = 0;
     products.map(
       (id) => (totalPrice += +(
@@ -46,8 +46,8 @@ const Cart = () => {
     return totalPrice.toFixed(2);
   };
 
-  const TotalPriceCalWithPromo = () => {
-    let totalPrice = TotalPriceCal();
+  const totalPriceCalWithPromo = () => {
+    let totalPrice = totalPriceCal();
     let totalPriceBaking = 0;
     products.forEach((item) => {
       if (data[item - 1].category === 'Baking/Cooking Ingredients') {
@@ -69,7 +69,7 @@ const Cart = () => {
     }
     return totalPrice;
   };
-  const ClearCart = () => {
+  const handleClearCart = () => {
     setProducts([]); // remove all products has choosen
     const newData = data.slice(0); // set Quantity in Cart all item = 1
     newData.map((item) => (item.quantityInCart = 1));
@@ -94,8 +94,8 @@ const Cart = () => {
     setTotalDrinkBuff(totalDrinkBuffQuantity); // set Total Drink to State
   };
   const handleCheckOut = () => {
-    const totalPrice = TotalPriceCal();
-    const totalPriceWithPromo = TotalPriceCalWithPromo();
+    const totalPrice = totalPriceCal();
+    const totalPriceWithPromo = totalPriceCalWithPromo();
     setTotalPrice(totalPrice);
     setTotalPriceWithPromo(totalPriceWithPromo);
     history.push('/checkout');
@@ -103,8 +103,8 @@ const Cart = () => {
   const handleInputPromoCode = (e) => {
     setPromoCode(e.target.value);
   };
-  const totalPriceCal = TotalPriceCal();
-  const totalPriceCallWithPromo = TotalPriceCalWithPromo();
+  const totalPriceCalValue = totalPriceCal();
+  const totalPriceCallWithPromoValue = totalPriceCalWithPromo();
   useEffect(() => {
     updateQuantityDrinkBuff();
   });
@@ -154,10 +154,10 @@ const Cart = () => {
             </Promotion>
             <TotalPrice>
               Total Price : Before: $
-              {totalPriceCal}
+              {totalPriceCalValue}
               {' '}
               - After:$
-              {totalPriceCallWithPromo}
+              {totalPriceCallWithPromoValue}
             </TotalPrice>
             <ButtonContainer>
               <Button
@@ -167,7 +167,7 @@ const Cart = () => {
               >
                 Back
               </Button>
-              <Button onClick={ClearCart}>Clear Cart</Button>
+              <Button onClick={handleClearCart}>Clear Cart</Button>
               <Button onClick={handleCheckOut}>Check Out</Button>
             </ButtonContainer>
           </CartPriceTotal>

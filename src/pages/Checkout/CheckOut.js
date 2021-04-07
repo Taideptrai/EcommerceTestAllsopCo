@@ -81,7 +81,7 @@ const CheckOut = () => {
     alert('Thank You for Shopping');
     setProducts([]);
     const newData = data.slice(0);
-    newData.map((item) => (item.quantityInCart = 1));
+    newData.map((item) => item.quantityInCart = 1);
     setData(newData);
     history.push('/');
   };

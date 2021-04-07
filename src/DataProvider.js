@@ -16,13 +16,8 @@ export const DataProvider = ({ children }) => {
     promotion: [promo, setPromo],
     price: [totalPrice, setTotalPrice],
     priceWithPromo: [totalPriceWithPromo, setTotalPriceWithPromo],
-
   };
-  return (
-    <GlobalState.Provider value={state}>
-      {children}
-    </GlobalState.Provider>
-  );
+  return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
 };
 
 export default DataProvider;

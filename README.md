@@ -1,7 +1,4 @@
 
-# B2B Food Service App
-A reactive Single-Page with some new features!! 
-
 # Usage
 1. Fork the repo and then clone it or download it.
 
